@@ -3,6 +3,7 @@ defmodule Sayapp.Accounts.User do
   import Ecto.Changeset
 
   alias Sayapp.Posts.Post
+  alias Sayapp.Comments.Comment
 
   schema "users" do
     field :email, :string
@@ -11,6 +12,7 @@ defmodule Sayapp.Accounts.User do
     field :current_password, :string, virtual: true, redact: true
     field :confirmed_at, :utc_datetime
     has_many :posts, Post
+    has_many :comments, Comment
 
     timestamps(type: :utc_datetime)
   end

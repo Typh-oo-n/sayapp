@@ -5,6 +5,5 @@ defmodule Sayapp.Repo.Migrations.AddUserIdToPosts do
     alter table(:posts) do
       add :user_id, :integer
     end
-
   end
 end

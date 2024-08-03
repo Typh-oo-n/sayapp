@@ -7,13 +7,12 @@ defmodule SayappWeb.PostLive.Index do
 
   @impl true
   def mount(_params, session, socket) do
-
-      user = Accounts.get_user_by_session_token(session["user_token"])
+    user = Accounts.get_user_by_session_token(session["user_token"])
 
     {:ok,
-    socket
-    |> stream(:posts, Posts.list_posts())
-    |> assign(:user, user)}
+     socket
+     |> stream(:posts, Posts.list_posts())
+     |> assign(:user, user)}
   end
 
   @impl true
