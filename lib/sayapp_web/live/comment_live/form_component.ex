@@ -19,8 +19,8 @@ defmodule SayappWeb.CommentLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-      <.input field={@form[:user_id]} type="hidden" value={@user.id} />
-      <.input field={@form[:post_id]} type="hidden" value={@post.id} />
+        <.input field={@form[:user_id]} type="hidden" value={@user.id} />
+        <.input field={@form[:post_id]} type="hidden" value={@post.id} />
         <.input field={@form[:text]} type="text" label="Text" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Comment</.button>

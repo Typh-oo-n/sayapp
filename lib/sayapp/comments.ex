@@ -24,6 +24,7 @@ defmodule Sayapp.Comments do
   def get_comment_for_a_post(post_id) do
     Repo.all(from c in Comment, where: c.post_id == ^post_id)
   end
+
   @doc """
   Gets a single comment.
 

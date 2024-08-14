@@ -1,4 +1,4 @@
-defmodule Sayapp.Posts.Post do
+cleadefmodule Sayapp.Posts.Post do
   use Ecto.Schema
   import Ecto.Changeset
 

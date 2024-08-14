@@ -30,12 +30,10 @@
   </tbody>
 </table>
 
+<.link patch={~p"/posts/#{@post.id}/new/comment"}>
+  <.button>Add Comment</.button>
+</.link>
 <.back navigate={~p"/posts"}>Back to posts</.back>
-
- <.link patch={~p"/posts/#{@post.id}/new/comment"}>
-      <.button>Add Comment</.button>
-    </.link>
-
 <.modal :if={@live_action == :edit} id="post-modal" show on_cancel={JS.patch(~p"/posts/#{@post}")}>
   <.live_component
     module={SayappWeb.PostLive.FormComponent}
@@ -47,7 +45,12 @@
   />
 </.modal>
 
-<.modal :if={@live_action == :add_comment} id="comment-modal" show on_cancel={JS.patch(~p"/posts/#{@post}")}>
+<.modal
+  :if={@live_action == :add_comment}
+  id="comment-modal"
+  show
+  on_cancel={JS.patch(~p"/posts/#{@post}")}
+>
   <.live_component
     module={SayappWeb.CommentLive.FormComponent}
     id={@post.id}
