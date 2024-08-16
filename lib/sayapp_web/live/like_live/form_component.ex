@@ -19,6 +19,12 @@ defmodule SayappWeb.LikeLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
+<<<<<<< HEAD
+=======
+        <.input field={@form[:user_id]} type="hidden" value={@user.id} />
+        <.input field={@form[:post_id]} type="hidden" value={@post.id} />
+        <.input field={@form[:likes_count]} type="number" label="Likes count" />
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
         <:actions>
           <.button phx-disable-with="Saving...">Save Like</.button>
         </:actions>
@@ -77,5 +83,23 @@ defmodule SayappWeb.LikeLive.FormComponent do
     end
   end
 
+<<<<<<< HEAD
+=======
+  defp save_like(socket, :add_likes, like_params) do
+    case Likes.create_like(like_params) do
+      {:ok, like} ->
+        notify_parent({:saved, like})
+
+        {:noreply,
+         socket
+         |> put_flash(:info, "Like created successfully")
+         |> push_patch(to: socket.assigns.patch)}
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        {:noreply, assign(socket, form: to_form(changeset))}
+    end
+  end
+
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
   defp notify_parent(msg), do: send(self(), {__MODULE__, msg})
 end

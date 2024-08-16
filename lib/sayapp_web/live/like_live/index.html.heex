@@ -12,6 +12,10 @@
   rows={@streams.likes}
   row_click={fn {_id, like} -> JS.navigate(~p"/likes/#{like}") end}
 >
+<<<<<<< HEAD
+=======
+  <:col :let={{_id, like}} label="Likes count"><%= like.likes_count %></:col>
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
   <:action :let={{_id, like}}>
     <div class="sr-only">
       <.link navigate={~p"/likes/#{like}"}>Show</.link>

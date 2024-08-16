@@ -69,6 +69,7 @@ defmodule SayappWeb.Router do
     live "/posts/:id/edit", PostLive.Index, :edit
 
     live "/posts/:id/new/comment", PostLive.Show, :add_comment
+    live "/posts/:id/new/likes", PostLive.Show, :add_likes
 
     live "/posts/:id", PostLive.Show, :show
     live "/posts/:id/show/edit", PostLive.Show, :edit
@@ -80,7 +81,11 @@ defmodule SayappWeb.Router do
     live "/comment/:id", CommentLive.Show, :show
     live "/comment/:id/show/edit", CommentLive.Show, :edit
 
+<<<<<<< HEAD
     live "/like/:post_id", LikeLive, :create
+=======
+
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
     live "/likes", LikeLive.Index, :index
     live "/likes/new", LikeLive.Index, :new
     live "/likes/:id/edit", LikeLive.Index, :edit

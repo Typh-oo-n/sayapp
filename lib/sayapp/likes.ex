@@ -21,6 +21,13 @@ defmodule Sayapp.Likes do
     Repo.all(Like)
   end
 
+<<<<<<< HEAD
+=======
+  def get_likes_for_a_post(post_id) do
+    Repo.all(from l in Like, where: l.post_id == ^post_id)
+  end
+
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
   @doc """
   Gets a single like.
 

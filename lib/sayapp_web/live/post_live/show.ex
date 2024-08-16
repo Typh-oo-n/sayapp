@@ -4,6 +4,12 @@ defmodule SayappWeb.PostLive.Show do
   alias Sayapp.Posts
   alias Sayapp.Accounts
   alias Sayapp.Comments.Comment
+<<<<<<< HEAD
+=======
+  alias Sayapp.Comments
+  alias Sayapp.Likes.Like
+  alias Sayapp.Likes
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
 
 
   @impl true
@@ -17,11 +23,24 @@ defmodule SayappWeb.PostLive.Show do
 
   @impl true
   def handle_params(%{"id" => id}, _, socket) do
+<<<<<<< HEAD
+=======
+    comments = Comments.get_comment_for_a_post(id)
+       likes = Likes.get_likes_for_a_post(id)
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
 
     {:noreply,
      socket
      |> assign(:page_title, page_title(socket.assigns.live_action))
      |> assign(:post, Posts.get_post!(id))
+<<<<<<< HEAD
+=======
+     |> assign(:comments, comments )
+     |> assign(:comment, %Comment{})
+     |> assign(:likes, likes )
+     |> assign(:like, %Like{})
+  }
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
 
      |> assign(:comment, %Comment{})}
   end
@@ -41,4 +60,5 @@ end
   defp page_title(:show), do: "Show Post"
   defp page_title(:edit), do: "Edit Post"
   defp page_title(:add_comment), do: "Add comment"
+  defp page_title(:add_likes), do: "Add likes"
 end

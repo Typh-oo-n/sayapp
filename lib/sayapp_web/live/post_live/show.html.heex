@@ -30,6 +30,7 @@
   </tbody>
 </table>
 
+<<<<<<< HEAD
 <.link patch={~p"/posts/#{@post.id}/new/comment"}>
   <.button>Add Comment</.button>
 </.link>
@@ -43,6 +44,38 @@
 </div>
 
 <.back navigate={~p"/posts"}>Back to posts</.back>
+=======
+
+<%!-- <table>
+  <thead>
+    <tr>
+      <th>Likes</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="vehicles">
+    <%= for likes <- @likes do %>
+      <tr id={"likes-#{likes.id}"}>
+        <td><%= likes.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> --%>
+
+
+<.back navigate={~p"/posts"}>Back to posts</.back>
+
+
+ <.link patch={~p"/posts/#{@post.id}/new/comment"}>
+      <.button>Add Comment</.button>
+    </.link>
+
+     <.link patch={~p"/posts/#{@post.id}/new/likes"}>
+      <.button>Add Like</.button>
+    </.link>
+
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
 <.modal :if={@live_action == :edit} id="post-modal" show on_cancel={JS.patch(~p"/posts/#{@post}")}>
   <.live_component
     module={SayappWeb.PostLive.FormComponent}
@@ -68,6 +101,20 @@
     post={@post}
     comment={@comment}
     user={@user}
+    patch={~p"/posts/#{@post}"}
+  />
+</.modal>
+
+<.modal :if={@live_action == :add_likes} id="likes-modal" show on_cancel={JS.patch(~p"/posts/#{@post}")}>
+  <.live_component
+    module={SayappWeb.LikeLive.FormComponent}
+    id={@post.id}
+    title={@page_title}
+    action={@live_action}
+    post={@post}
+    comment={@comment}
+    user={@user}
+    like={@like}
     patch={~p"/posts/#{@post}"}
   />
 </.modal>

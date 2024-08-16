@@ -4,9 +4,15 @@ defmodule SayappWeb.LikeLiveTest do
   import Phoenix.LiveViewTest
   import Sayapp.LikesFixtures
 
+<<<<<<< HEAD
   @create_attrs %{}
   @update_attrs %{}
   @invalid_attrs %{}
+=======
+  @create_attrs %{likes_count: 42}
+  @update_attrs %{likes_count: 43}
+  @invalid_attrs %{likes_count: nil}
+>>>>>>> d6b3269618b4ab0c1a9d4bf2ff6bd736c00e4ada
 
   defp create_like(_) do
     like = like_fixture()
