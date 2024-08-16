@@ -4,6 +4,7 @@ defmodule Sayapp.Accounts.User do
 
   alias Sayapp.Posts.Post
   alias Sayapp.Comments.Comment
+  alias Sayapp.Likes.Like
 
   schema "users" do
     field :email, :string
@@ -13,6 +14,7 @@ defmodule Sayapp.Accounts.User do
     field :confirmed_at, :utc_datetime
     has_many :posts, Post
     has_many :comments, Comment
+    has_many :likes, Like
 
     timestamps(type: :utc_datetime)
   end
